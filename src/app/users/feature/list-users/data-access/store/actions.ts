@@ -7,5 +7,7 @@ export const listUsersActions = createActionGroup({
     'Get Users': props<{ page: number }>(),
     'Get Users Success': props<{ users: getUsersResponse }>(),
     'Get Users Failure': emptyProps(),
+
+    'Update User Search Text': props<{ searchText: string }>(),
   },
 });
