@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { HeaderComponent } from './shared/ui/header/header.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MatToolbarModule],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  imports: [RouterOutlet, HeaderComponent],
+  template: `
+    <div class="container">
+      <app-header />
+      <router-outlet />
+    </div>
+  `,
 })
-export class AppComponent {
-  title = 'dynamic-user-dashboard-assessment';
-}
+export class AppComponent {}
