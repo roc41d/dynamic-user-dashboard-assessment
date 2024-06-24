@@ -11,6 +11,7 @@ import { listUsersActions } from './data-access/store/actions';
 import { AsyncPipe, JsonPipe } from '@angular/common';
 import { UserCardComponent } from './ui/user-card/user-card.component';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-list-users',
@@ -18,6 +19,14 @@ import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
   imports: [AsyncPipe, UserCardComponent, MatPaginatorModule],
   templateUrl: './list-users.component.html',
   styleUrl: './list-users.component.scss',
+  animations: [
+    trigger('cardAnimation', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateY(50px)' }),
+        animate('500ms ease-in-out', style({ opacity: 1, transform: 'translateY(0)' })),
+      ]),
+    ]),
+  ]
 })
 export class ListUsersComponent implements OnInit {
   private currentPage = 1;
