@@ -19,4 +19,11 @@ export const USERS_ROUTES: Route[] = [
       provideEffects(listUsersEffect),
     ],
   },
+  {
+    path: ':id',
+    loadComponent: () =>
+      import('./feature/user-details/user-details.component').then(
+        (comp) => comp.UserDetailsComponent,
+      ),
+  },
 ];
