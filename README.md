@@ -1,4 +1,5 @@
 # Dynamic User Dashboard - Assessment
+### Using Angular 18, NgRx, Angular Material, and Jest
 
 ## Getting started
 
