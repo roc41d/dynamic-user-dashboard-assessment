@@ -12,11 +12,12 @@ import { AsyncPipe, JsonPipe } from '@angular/common';
 import { UserCardComponent } from './ui/user-card/user-card.component';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { LoaderComponent } from '../../../shared/ui/loader.component';
 
 @Component({
   selector: 'app-list-users',
   standalone: true,
-  imports: [AsyncPipe, UserCardComponent, MatPaginatorModule],
+  imports: [AsyncPipe, UserCardComponent, MatPaginatorModule, LoaderComponent],
   templateUrl: './list-users.component.html',
   styleUrl: './list-users.component.scss',
   animations: [
