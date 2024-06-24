@@ -1,0 +1,18 @@
+<mat-card
+  [routerLink]="['/users', user.id]"
+  class="card"
+  appearance="outlined"
+>
+  <mat-card-header>
+    <img
+      class="user-img"
+      mat-card-avatar
+      [src]="user.avatar"
+      alt="User avatar"
+    />
+  </mat-card-header>
+  <mat-card-content class="center-text">
+    <p class="mat-mdc-card-title">{{ user.first_name }} {{ user.last_name }}</p>
+    <p class="mat-mdc-card-subtitle">Email: {{ user.email }}</p>
+  </mat-card-content>
+</mat-card>

@@ -1,7 +1,7 @@
 @if (data$ | async; as data) { @if (data.users.length > 0) {
 <div class="cards">
   @for (user of data.users; track user.id) {
-    <!-- user-card-component -->
+    <app-user-card class="card" [user]="user" />
   }
 </div>
 } @else if (!data.isLoading && data?.users?.length === 0) {

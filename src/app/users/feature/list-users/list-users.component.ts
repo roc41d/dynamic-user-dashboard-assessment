@@ -9,11 +9,12 @@ import {
 } from './data-access/store/reducers';
 import { listUsersActions } from './data-access/store/actions';
 import { AsyncPipe, JsonPipe } from '@angular/common';
+import { UserCardComponent } from './ui/user-card/user-card.component';
 
 @Component({
   selector: 'app-list-users',
   standalone: true,
-  imports: [AsyncPipe, JsonPipe],
+  imports: [AsyncPipe, UserCardComponent],
   templateUrl: './list-users.component.html',
   styleUrl: './list-users.component.scss',
 })

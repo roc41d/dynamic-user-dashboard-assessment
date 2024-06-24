@@ -8,9 +8,11 @@ import { HeaderComponent } from './shared/ui/header/header.component';
   standalone: true,
   imports: [RouterOutlet, HeaderComponent],
   template: `
-    <div class="container">
+    <div class="main">
       <app-header />
-      <router-outlet />
+      <div class="content">
+        <router-outlet />
+      </div>
     </div>
   `,
 })

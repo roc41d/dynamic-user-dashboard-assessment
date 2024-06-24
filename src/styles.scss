@@ -1,4 +1,60 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+p {
+  margin: 0 !important;
+}
+
+.content {
+  padding: 20px;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.user-img {
+  width: 128px !important;
+  height: 128px !important;
+  display: block;
+  margin: 0 auto;
+}
+
+.card {
+  background: white;
+  margin-bottom: 1em;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  flex: 0 1 calc(20% - 1em);
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    flex: 0 1 calc(33.33% - 1em);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cards {
+    flex-direction: column;
+  }
+
+  .card {
+    flex: 1 0 auto;
+  }
+}
