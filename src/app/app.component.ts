@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { HeaderComponent } from './shared/ui/header/header.component';
+import { HeaderComponent } from './shared/ui/header.component';
 
 @Component({
   selector: 'app-root',

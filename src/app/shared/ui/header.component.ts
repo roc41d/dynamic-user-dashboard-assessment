@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { SearchBarComponent } from '../../feature/search-bar.component';
+import { SearchBarComponent } from '../feature/search-bar.component';
 
 @Component({
   selector: 'app-header',
