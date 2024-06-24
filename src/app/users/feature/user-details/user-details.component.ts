@@ -11,11 +11,18 @@ import {
 import { AsyncPipe } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { LoaderComponent } from '../../../shared/ui/loader.component';
 
 @Component({
   selector: 'app-user-details',
   standalone: true,
-  imports: [AsyncPipe, RouterLink, MatCardModule, MatButtonModule],
+  imports: [
+    AsyncPipe,
+    RouterLink,
+    MatCardModule,
+    MatButtonModule,
+    LoaderComponent,
+  ],
   templateUrl: './user-details.component.html',
   styleUrl: './user-details.component.scss',
 })

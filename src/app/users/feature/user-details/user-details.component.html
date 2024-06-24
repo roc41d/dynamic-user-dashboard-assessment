@@ -1,4 +1,6 @@
-@if (data$ | async; as data) { @if (data.user && data.user.id) {
+@if (data$ | async; as data) {
+<app-loader [isLoading]="data.isLoading"></app-loader>
+@if (data.user && data.user.id) {
 <div class="user-details-content">
   <mat-card class="md-card" [@cardAnimation]>
     <mat-card-header>
