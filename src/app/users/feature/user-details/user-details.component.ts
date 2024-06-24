@@ -1,12 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { combineLatest } from 'rxjs';
+import { userDetailActions } from './data-access/store/actions';
+import {
+  selectLoading,
+  getUser,
+  selectError,
+} from './data-access/store/reducers';
+import { AsyncPipe } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-user-details',
   standalone: true,
-  imports: [],
+  imports: [AsyncPipe, RouterLink, MatCardModule, MatButtonModule],
   templateUrl: './user-details.component.html',
-  styleUrl: './user-details.component.scss'
+  styleUrl: './user-details.component.scss',
 })
-export class UserDetailsComponent {
+export class UserDetailsComponent implements OnInit {
+  private store = inject(Store);
+  private route = inject(ActivatedRoute);
 
+  data$ = combineLatest({
+    isLoading: this.store.select(selectLoading),
+    user: this.store.select(getUser),
+    error: this.store.select(selectError),
+  });
+
+  ngOnInit(): void {
+    const userId = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
+    this.store.dispatch(userDetailActions.getUserDetails({ userId }));
+  }
 }

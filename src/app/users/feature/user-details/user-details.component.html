@@ -1,1 +1,25 @@
-<p>user-details works!</p>
+@if (data$ | async; as data) { @if (data.user && data.user.id) {
+<div class="user-details-content">
+  <mat-card class="md-card" [@cardAnimation]>
+    <mat-card-header>
+      <img
+        class="user-img"
+        mat-card-avatar
+        [src]="data.user.avatar"
+        alt="User avatar"
+      />
+    </mat-card-header>
+    <mat-card-content>
+      <p class="mat-mdc-card-title">
+        {{ data.user.first_name }} {{ data.user.last_name }}
+      </p>
+      <p class="mat-mdc-card-subtitle">Email: {{ data.user.email }}</p>
+    </mat-card-content>
+    <mat-card-actions style="display: flex; justify-content: center">
+      <button mat-button color="primary" routerLink="/users">Back</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+} @else if (!data.isLoading && !data.user) {
+<h1>No Data</h1>
+} }

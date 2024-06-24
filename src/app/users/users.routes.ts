@@ -6,6 +6,11 @@ import {
   listUsersFeatureKey,
   listUsersReducer,
 } from './feature/list-users/data-access/store/reducers';
+import * as userDetailEffect from './feature/user-details/data-access/store/effects';
+import {
+  userDetailFeatureKey,
+  userDetailReducer,
+} from './feature/user-details/data-access/store/reducers';
 
 export const USERS_ROUTES: Route[] = [
   {
@@ -25,5 +30,9 @@ export const USERS_ROUTES: Route[] = [
       import('./feature/user-details/user-details.component').then(
         (comp) => comp.UserDetailsComponent,
       ),
+    providers: [
+      provideState(userDetailFeatureKey, userDetailReducer),
+      provideEffects(userDetailEffect),
+    ],
   },
 ];
