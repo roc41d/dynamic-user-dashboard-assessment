@@ -10,11 +10,12 @@ import {
 import { listUsersActions } from './data-access/store/actions';
 import { AsyncPipe, JsonPipe } from '@angular/common';
 import { UserCardComponent } from './ui/user-card/user-card.component';
+import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-list-users',
   standalone: true,
-  imports: [AsyncPipe, UserCardComponent],
+  imports: [AsyncPipe, UserCardComponent, MatPaginatorModule],
   templateUrl: './list-users.component.html',
   styleUrl: './list-users.component.scss',
 })
@@ -35,5 +36,10 @@ export class ListUsersComponent implements OnInit {
 
   loadUsers(page: number): void {
     this.store.dispatch(listUsersActions.getUsers({ page }));
+  }
+
+  pageChange(event: PageEvent): void {
+    this.currentPage = event.pageIndex + 1;
+    this.loadUsers(this.currentPage);
   }
 }
